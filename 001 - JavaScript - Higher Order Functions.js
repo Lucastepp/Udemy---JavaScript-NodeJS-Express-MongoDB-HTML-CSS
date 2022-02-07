@@ -19,5 +19,6 @@ function rollDie() {
     console.log(roll)
 }
 
-// Pass the function rollDie with callTwice or callTenTimes
+// Pass the function callTwice or callTenTimes with rollDie
+// as argument
 callTwice(rollDie)
