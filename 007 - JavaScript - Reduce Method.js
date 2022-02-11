@@ -4,6 +4,8 @@
 
 
 const prices = [9.99, 1.50, 19.99, 49.99]
+
+
 // for of 
 
 let total = 0;
@@ -17,3 +19,7 @@ console.log(total)
 const total = prices.reduce((total, price) => {
     return total + price
 })
+
+// or shorter
+
+const total = prices.reduce((total, price) => total + price)
