@@ -6,7 +6,7 @@
 
 const tweetForm = document.querySelector("#tweetForm");
 const tweetsContainer = document.querySelector("#tweets");
-//const list = document.querySelector("#");
+
 
 tweetForm.addEventListener("submit", function (e) {
     e.preventDefault();
