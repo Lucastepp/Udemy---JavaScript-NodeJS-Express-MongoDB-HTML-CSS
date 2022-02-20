@@ -36,6 +36,6 @@ class Bird extends Pet {
         this.lives = lives;
     }
     sing() {
-        return 'Piow pioww';
+        return 'Peow peow';
     }
 }
