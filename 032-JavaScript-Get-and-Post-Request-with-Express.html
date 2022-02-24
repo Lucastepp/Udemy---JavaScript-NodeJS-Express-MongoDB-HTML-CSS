@@ -11,15 +11,23 @@
     <title>Tv Show Search</title>
     <!-- <link rel="stylesheet" href="016 - style.css"> -->
    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.css"/> -->
-   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   
 </head>
 
 
 <body>
-    <h1>Tv Show Search</h1>
-    <form id="searchForm">
-        <input type="text" placeholder="TV Show Title" name="query">
-        <button>Search</button>
+    <h1>GET AND POST REQUESTS</h1>
+    <h2>GET</h2>
+    <form action="http://localhost:3000/tacos" method="get">
+        <input type="text" name="meat">
+        <input type="number" name="qty">
+        <button>Submit</button>
+    </form>
+    <h2>POST</h2>
+    <form action="http://localhost:3000/tacos" method="post">
+        <input type="text" name="meat">
+        <input type="number" name="qty">
+        <button>Submit</button>
     </form>
   
        
