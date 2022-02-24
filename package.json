@@ -2,7 +2,29 @@
   "dependencies": {
     "axios": "^0.26.0",
     "colors": "^1.4.0",
+    "express": "^4.17.3",
     "figlet": "^1.5.2",
-    "give-me-a-joke": "^0.5.1"
-  }
+    "franc": "^6.0.0",
+    "give-me-a-joke": "^0.5.1",
+    "langs": "^2.0.0"
+  },
+  "name": "udemy",
+  "version": "1.0.0",
+  "main": "032-JavaScript-NodeJS-NPM-Language-Guesser-Challenge.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucastepp/Udemy-JavaScript-React-HTML-CSS.git"
+  },
+  "author": "Lucas Teixeira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lucastepp/Udemy-JavaScript-React-HTML-CSS/issues"
+  },
+  "homepage": "https://github.com/Lucastepp/Udemy-JavaScript-React-HTML-CSS#readme",
+  "keywords": [],
+  "description": ""
 }
