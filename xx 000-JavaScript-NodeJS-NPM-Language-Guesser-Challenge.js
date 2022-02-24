@@ -1,5 +1,8 @@
 
 
+
+// It needs to be fixed
+
 import { franc } from 'franc';
 import langs from 'langs';
 //const franc = require("franc");
