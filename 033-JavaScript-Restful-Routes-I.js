@@ -18,8 +18,20 @@ const comments = [
     {
         username: 'Todd',
         comment: 'lol that is so funny!'    
-    }
+    },
+    {
+        username: 'Darlan',
+        comment: 'Putin ta certo!'    
+    },
+    {
+        username: 'Braynner',
+        comment: 'Ta saindo leite da minha teta!'    
+    } 
 ]
+
+app.get('/comments', (req, res) => {
+    res.render('033-folder/comments')
+} )
 
 app.get('/tacos', (req, res) => {
     res.send("GET / tacos response")
