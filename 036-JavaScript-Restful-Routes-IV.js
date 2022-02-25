@@ -55,14 +55,20 @@ app.post('/comments', (req, res) => {
 
 app.get('/comments/:id', (req, res) => {
     const { id } = req.params;
-    const comment = comments.find(c => c.id === id)
+    const comment = comments.find(c => c.id === id);
     res.render('033-folder/show', { comment })
+})
+
+app.get('/comments/:id/edit', (req, res) => {
+    const { id } = req.params;
+    const comment = comments.find(c => c.id === id);
+    res.render('033-folder/edit', { comment })
 })
 
 app.patch('/comments/:id', (req, res) => {
     const { id } = req.params;
     const newCommentText = req.body.comment;
-    const foundComment = comments.find(c => c.id === id)
+    const foundComment = comments.find(c => c.id === id);
     foundComment.comment = newCommentText;
     res.redirect('/comments')
 })
