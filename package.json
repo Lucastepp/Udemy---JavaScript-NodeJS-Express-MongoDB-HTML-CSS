@@ -2,6 +2,7 @@
   "dependencies": {
     "axios": "^0.26.0",
     "colors": "^1.4.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.3",
     "figlet": "^1.5.2",
     "franc": "^6.0.0",
@@ -11,7 +12,6 @@
   "name": "udemy",
   "version": "1.0.0",
   "main": "032-JavaScript-NodeJS-NPM-Language-Guesser-Challenge.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
