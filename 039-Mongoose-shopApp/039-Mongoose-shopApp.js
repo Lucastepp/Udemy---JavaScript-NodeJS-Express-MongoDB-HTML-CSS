@@ -22,7 +22,20 @@ const productSchema = new mongoose.Schema({
 });
 
 const Product = mongoose.model('Movie', productSchema);
-//const amadeus = new Movie({ title: 'Amadeuss', year: 1984, score: 9.2, rating: 'R'});
+const bike = new Product({ name: 'Mountain  Bike', price: 599 });
+const bike2 = new Product({ name: 'Gravel  Bike', price: 899 });
+bike.save()
+
+    .then(data => {
+        console.log("IT WORKED!")
+        console.log(data);
+    })
+    .catch(err => {
+        console.log("OH NO ERROR!!!")
+        console.log(err);
+    })
+
+
 
 // Movie.insertMany([
 //     {title: 'Amadeuss', year: 1984, score: 9.2, rating: 'R'},
