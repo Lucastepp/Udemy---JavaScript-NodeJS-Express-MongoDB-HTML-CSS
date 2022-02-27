@@ -11,28 +11,38 @@ mongoose.connect('mongodb://localhost:27017/shopApp', { useUnifiedTopology: true
 const productSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        maxlength: 20
     },
     price: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
+    onSale: {
+        type: Boolean,
+        default: false 
+    },
+    categories: {
+        type: [String]
+        
+    },
+    qty: {
+        online: {
+            type: Number,
+            default: 0
+        },
+        inStore: {
+            type: Number,
+            default: 0
+        },
+    }
 
-    isOnSale: Boolean,
-    rating: String 
 });
 
 const Product = mongoose.model('Product', productSchema);
-// const bike = new Product({ name: 'Mountain  Bike', price: 599 });
-// const bike2 = new Product({ name: 'Gravel  Bike', price: 899 });
-// bike.save()
-
-
-Product.insertMany([
-    {name: 'Mountain  Bike', price: 599 },
-    {name: 'Gravel Bike', price: 799 },
-    {name: 'Road Bike', price: 999 }
-])
+const bike = new Product({ name: 'Bike Tire', price: 19.55, categories: ['Cycling', 'Safety'] });
+bike.save()
     .then(data => {
         console.log("IT WORKED!")
         console.log(data);
@@ -41,6 +51,19 @@ Product.insertMany([
         console.log("OH NO ERROR!!!")
         console.log(err);
     })
+
+// const bike2 = new Product({ name: 'Gravel  Bike', price: 899 });
+// bike.save()
+
+
+// Product.insertMany([
+//     {name: 'Mountain  Bike', price: 599 },
+//     {name: 'Gravel Bike', price: 799 },
+//     {name: 'Road Bike', price: 999 }
+// ])
+    
+    
+  
 
    
 
