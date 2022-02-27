@@ -9,6 +9,7 @@
     "give-me-a-joke": "^0.5.1",
     "langs": "^2.0.0",
     "method-override": "^3.0.0",
+    "mongoose": "^6.2.3",
     "uuid": "^8.3.2"
   },
   "name": "udemy",
