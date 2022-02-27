@@ -14,18 +14,25 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     price: {
-        type: Number
+        type: Number,
+        required: true
     },
 
     isOnSale: Boolean,
     rating: String 
 });
 
-const Product = mongoose.model('Movie', productSchema);
-const bike = new Product({ name: 'Mountain  Bike', price: 599 });
-const bike2 = new Product({ name: 'Gravel  Bike', price: 899 });
-bike.save()
+const Product = mongoose.model('Product', productSchema);
+// const bike = new Product({ name: 'Mountain  Bike', price: 599 });
+// const bike2 = new Product({ name: 'Gravel  Bike', price: 899 });
+// bike.save()
 
+
+Product.insertMany([
+    {name: 'Mountain  Bike', price: 599 },
+    {name: 'Gravel Bike', price: 799 },
+    {name: 'Road Bike', price: 999 }
+])
     .then(data => {
         console.log("IT WORKED!")
         console.log(data);
@@ -34,6 +41,8 @@ bike.save()
         console.log("OH NO ERROR!!!")
         console.log(err);
     })
+
+   
 
 
 
