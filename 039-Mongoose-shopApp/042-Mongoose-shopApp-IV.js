@@ -50,6 +50,16 @@ productSchema.methods.toggleOnSale = function () {
 }
 
 
+// onSale true + price = 0
+productSchema.statics.normalPrice = function () {
+    return this.updateMany({}, { onSale: false, price: 9.99})
+}
+
+// onSale false + price = 9.99
+productSchema.statics.fireSale = function () {
+    return this.updateMany({}, { onSale: true, price: 0})
+}
+
 
 const Product = mongoose.model('Product', productSchema);
 
@@ -60,7 +70,11 @@ const findProduct = async () => {
     console.log(foundProduct)
 }
 
-findProduct();
+// onSale true + price = 0
+//Product.fireSale().then(res => console.log(res))
+// onSale false + price = 9.99
+Product.normalPrice().then(res => console.log(res))
+//findProduct();
 
 // const bike = new Product({ name: 'Bike Jersey', price: 29.55, categories: ['Cycling'], size: "S" });
 // bike.save()
