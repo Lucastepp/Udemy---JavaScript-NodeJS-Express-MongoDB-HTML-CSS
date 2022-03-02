@@ -12,18 +12,6 @@ mongoose.connect('mongodb://localhost:27017/farmStand', { useUnifiedTopology: tr
     console.log(err)
 });
 
-// const p = new Product({
-//     name: 'Ruby Grapefruit',
-//     price: 1.99,
-//     category: 'fruit'
-// })
-
-// p.save().then(p => {
-//     console.log(p)
-// })
-// .catch(e => {
-//     console.log(e)
-// })
 
 const seedProducts = [
     {
@@ -54,11 +42,24 @@ const seedProducts = [
 ]
 
 
-
 Product.insertMany(seedProducts)
     .then(res => {
         console.log(res)
     })
-    .catch(e => {
-        console.log(e)
+    .catch(err => {
+        console.log(err)
     })
+
+
+    // const p = new Product({
+//     name: 'Ruby Grapefruit',
+//     price: 1.99,
+//     category: 'fruit'
+// })
+
+// p.save().then(p => {
+//     console.log(p)
+// })
+// .catch(e => {
+//     console.log(e)
+// })
