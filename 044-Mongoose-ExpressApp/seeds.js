@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost:27017/farmStand', { useUnifiedTopology: tr
 const seedProducts = [
     {
       name: 'Fairy Eggplant',
-      price: 1.00,
+      price: 1.19,
       category: 'vegetable'  
     },
     {
