@@ -30,10 +30,10 @@ app.get('/products', async (req, res) => {
     const { category } = req.query;
     if(category){
         const products = await Product.find({ category })
-        res.render('products/productsIndex', { products })
+        res.render('products/productsIndex', { products, category })
     } else {
         const products = await Product.find({})
-        res.render('products/productsIndex', { products })
+        res.render('products/productsIndex', { products, category: 'All' })
     }
    
 })
