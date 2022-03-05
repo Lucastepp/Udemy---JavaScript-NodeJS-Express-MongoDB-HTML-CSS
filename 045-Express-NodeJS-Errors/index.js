@@ -54,13 +54,7 @@ app.use((req, res) => {
 })
 
 
-// app.use((err, req, res, next) => {
-//     console.log("******************************************")
-//     console.log("*****************ERROR*****************")
-//     console.log("******************************************")
-//     console.log(err)
-//     next(err)
-// })
+
 
 app.use((err, req, res, next) => {
     const { status = 500, message = 'Something Went Wrong' } = err;
