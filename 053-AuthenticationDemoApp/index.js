@@ -3,6 +3,7 @@ const app = express();
 const User = require('./models/user');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
 
 
 mongoose.connect('mongodb://localhost:27017/AuthDemoApp', { useUnifiedTopology: true })
@@ -19,6 +20,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(session({ secret: 'notagoodsecret' }))
 
 app.get('/', (req, res) => {
     res.send('THIS IS THE HOME PAGE =D')
@@ -36,6 +38,7 @@ app.post('/register', async (req, res) => {
         password: hash 
     })
     await user.save();
+    req.session.user_id = user._id;
     res.redirect('/')
     
 })
@@ -49,14 +52,24 @@ app.post('/login', async(req, res) => {
     const user = await User.findOne({ username }) //same of { username: username } !!!
     const validPassword = await bcrypt.compare(password, user.password)
     if (validPassword) {
+        req.session.user_id = user._id;
         res.send('YAY, WELCOME!!!')
     } else {
         res.send('SOMETHING WENT WRONG, TRY AGAIN!!!')
     }
 })
 
+app.post("/logout", (req, res) => {
+    req.session.user_id = null;
+    res.redirect('/login')
+
+})
+
 app.get('/secret', (req, res) => {
-    res.send('THIS IS SECRET! YOU CANNOT SEE ME UNLESS YOU ARE LOGGED IN!')
+    if (!req.session.user_id) {
+        res.redirect('/login')
+    }
+    res.render('secret')
 })
 
 app.listen(3000, () => {
