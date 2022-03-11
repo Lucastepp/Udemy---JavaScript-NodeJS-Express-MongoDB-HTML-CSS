@@ -6,8 +6,6 @@ const { isLoggedIn, isAuthor, validateCampground } = require('../middleware');
 
 
 
-
-
 router.get('/', catchAsync(async (req, res) => {
     const campgrounds = await Campground.find({});
     res.render('campgrounds/index', { campgrounds })
@@ -28,7 +26,12 @@ router.post('/', validateCampground, catchAsync(async (req, res, next) => {
 }))
 
 router.get('/:id', isLoggedIn, catchAsync(async (req, res) => {
-    const campground = await Campground.findById(req.params.id).populate('reviews').populate('author');
+    const campground = await Campground.findById(req.params.id).populate({
+        path: 'reviews',
+        populate: {
+            path: 'author'
+        }
+    }).populate('author');
     console.log(campground.author.username);
     if (!campground) {
         req.flash('error', 'Cannot find that campground!');
